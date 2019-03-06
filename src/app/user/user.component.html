@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Marvel Heroes</title>
+  <base href="/">
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+</head>
+<body>
+  <header class="nav-marvel" style="height: 121px;">
+      <img class = "bg-marvel">
+      <button class="btn" (click)="editProfile()"><i class="icon-user" style="color: white; margin-right: 13px; font-size: 1.4em;"></i>USERNAME</button>
+      <button class="btn" (click)="favHeroes()" style="margin-right: 30px;"><i class="icon-star" style="color: white; font-size: 1.4em;"></i></button>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <nav class="navbar">
+         <form [formGroup]="form" (submit)="onSubmit()">
+          <input class="form-control" type="text" formControlName="search2" name="search">
+        <!--   <input class="form-control" type="text" name="search" [(ngModel)]="searchFilter"> -->
+         </form>
+      </nav>
+      <table class="table">
+        <thead>
+          <tr class="tr-name">
+            TOP CHARACTERS
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let hero of heroes | filter : searchFilter | orderBy: key : reverse | elements | paginate : { itemsPerPage: 4, currentPage: p }; let i = index">
+              <tr>
+                  <td><img [src]="hero[0].images.thumbnail" align="left"><a routerLink="/details/{{hero[0]?.id}}"><p class = "hero-name">{{hero[0]?.name}}</p></a><br><br> {{hero[0].description}}</td>
+                  <td><img [src]="hero[1].images.thumbnail" align="left"><a routerLink="/details/{{hero[1]?.id}}"><p class = "hero-name">{{hero[1]?.name}}</p></a><br><br> {{hero[1].description}}</td>
+              </tr>
+          </ng-container>
+        </tbody>
+        <pagination-controls class="pg-control" (pageChange)="p = $event"></pagination-controls>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

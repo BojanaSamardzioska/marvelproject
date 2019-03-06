@@ -1,0 +1,29 @@
+img{
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  margin-left: 150px;
+  margin-top: 15px;
+  border: 2px solid black;
+}
+
+p{
+
+  text-align: center;
+  font-family: Lato;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.button
+{
+  text-align: center;
+  margin-top: 25px;
+  height: 50px;
+  color: white;
+  font-size: 1.7em;
+  background-color: blue;
+  border-radius: 10%;
+}

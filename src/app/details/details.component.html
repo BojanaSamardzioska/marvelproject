@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content = "user-scalable=no,width=device-width,initial-scale = 1.0,maximum-scale = 1.0" />
+<title>Marvel</title>
+</head>
+<body>
+	<div id="box">
+		<div id="header">
+    <br>
+    <p class= "hero-name">{{hero.name}}</p>
+    <p class="desc">{{hero.description}}</p></div>
+		<div class="avatar"><img [src]="hero.images.thumbnail" class = "imgicon"></div>
+	</div>
+	<br>
+	<br>
+	<p class="details">DETAILS</p>
+	<a href="{{hero.urls.marvel}}" class = "marvel-link">Marvel Website</a>
+	<a href="{{hero.urls.wikipedia}}" class = "wiki-link">Wikipedia</a>
+	<br>
+	<br>
+	<div class="hero-list">
+		<p>TEAMS</p>
+		<ul>
+			<li *ngFor = "let team of hero.teams"><span>{{team}}</span></li>
+		</ul>
+		<hr>
+		<br>
+		<p>POWERS</p>
+		<ul *ngFor = "let power of hero.powers">
+			<li><span>{{power}}</span></li>
+		</ul>
+		<hr>
+		<br>
+		<p>Species</p>
+		<ul *ngFor = "let spc of hero.species">
+			<li><span>{{spc}}</span></li>
+		</ul>
+		<hr>
+		<br>
+		<p>Authors</p>
+		<ul *ngFor = "let author of hero.authors">
+			<li><span>{{author}}</span></li>
+		</ul>
+	</div>
+</body>
+</html>

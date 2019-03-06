@@ -1,0 +1,148 @@
+@font-face {
+   font-family: myFirstFont;
+   src: url(../fonts/CrimeBold.ttf);
+}
+@font-face {
+   font-family: mySecondFont;
+   src: url(../fonts/CrimeRegular.ttf);
+}
+@font-face {
+   font-family: myThirdFont;
+   src: url(../fonts/PalookaBold.otf);
+}
+
+#box {
+	width: 100%;
+	height:100%;
+	padding: 2% 0;
+	border: 1px solid #f3f3f3;
+	overflow: hidden;
+}
+
+#header {
+  background-image: url(./profile-bg-default.gif);
+	height: 450px;
+	width: 100%;
+	margin: -80px auto;
+  font-size: 1.5em;
+	border-bottom: 1px solid #333;
+}
+
+.desc{
+  margin-left: 170px;
+  margin-right: 120px;
+  text-align: left;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.hero-name{
+	font-family: myThirdFont;
+  text-align: center;
+  font-size: 3em;
+  color:white;
+	text-shadow: 3px 3px #bfbfbf;
+}
+
+body, html{
+  margin: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.heading{
+	display: block;
+	font-family: 'proxima_nova_rgregular', 'Gotham',  sans-serif;
+	font-size: 32px;
+	font-weight: normal;
+	height: 36px;
+	margin: 40px;
+	min-height: 0px;
+	position: static;
+	text-align: center;
+	text-decoration: none;
+	color: #333;
+	text-shadow: 0 1px #B8AFA2;
+}
+
+
+a {
+	text-decoration: none;
+	color: rgba(0,0,0,0.5);
+}
+
+.imgicon{
+  width: 150px;
+  height: 150px;
+  align: center;
+  border-radius: 50%;
+	margin: 0 auto;
+  margin-top: -20px;
+  box-shadow: inset 0 0 0 2px #3f3f3f;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+	margin: 0 auto;
+  margin-top: 40px;
+}
+
+.details{
+	font-family: myThirdFont;
+	margin-left: 170px;
+	font-size: 2.5em;
+}
+
+.hero-list{
+	font-family: myThirdFont;
+	color: #4d4d4d;
+	margin-left: 150px;
+	margin-right: 150px;
+}
+.hero-list ul{
+	list-style-type: circle;
+}
+
+.hero-list ul li{
+	font-size: 40px;
+	font-family myThirdFont:
+}
+
+span{
+	font-size: 20px;
+	font-weight: normal;
+}
+
+.hero-list p
+{
+	font-family: myThirdFont;
+	color:red;
+	margin-left: 20px;
+	font-size: 1.3em;
+}
+
+.details{
+	font-family: myThirdFont;
+	color: black;
+	font-size: 2.5em;
+}
+
+.marvel-link
+{
+	margin-left: 500px;
+	font-weight: bold;
+	color: black;
+	text-decoration: underline;
+}
+
+.wiki-link{
+	margin-left: 300px;
+	font-weight: bold;
+	color: black;
+	text-decoration: underline;
+}

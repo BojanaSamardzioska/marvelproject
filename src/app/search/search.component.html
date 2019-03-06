@@ -1,0 +1,18 @@
+<tr fxLayout="row wrap" fxLayout.xs="column wrap">
+  <td fxFlex.gt-xs="50%" [fxFlex.gt-md]="numCol" *ngFor="let hero of heroes | slice : 0:9" class="room">
+      <img [src]="hero.images.thumbnail">
+      <p>{{hero.name}}</p>
+  </td>
+  <ng-container *ngIf="showMore">
+     <ng-container *ngFor="let hero of heroes; let ndx = index">
+        <td *ngIf="ndx >= 9" td fxFlex.gt-xs="50%" [fxFlex.gt-md]="numCol">
+          <img [src]="hero.images.thumbnail">
+          <p>{{hero.name}}</p>
+        </td>
+     </ng-container>
+  </ng-container>
+</tr>
+
+<div class="wrapper">
+  <button (click)="showMore = true" class="button">Load more</button>
+</div>

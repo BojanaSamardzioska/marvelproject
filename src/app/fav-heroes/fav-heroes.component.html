@@ -1,0 +1,23 @@
+<div class ="alphabet">
+<ul *ngFor="let group of result">
+  <li>{{group.key}}
+      <ul *ngFor="let hero of group.heroes">
+          <li>{{hero.name}}</li>
+      </ul>
+  </li>
+</ul>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<ul *ngFor="let group of result2">
+  <li>{{group.key}}
+      <ul *ngFor="let hero of group.heroes">
+          <li>{{hero.name}}</li>
+      </ul>
+  </li>
+</ul>

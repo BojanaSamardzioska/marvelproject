@@ -1,0 +1,43 @@
+@font-face {
+   font-family: myThirdFont;
+   src: url(../fonts/PalookaBold.otf);
+}
+
+.form-group{
+    margin-bottom: 10px;
+}
+
+p{
+  margin-bottom: 10px;
+}
+
+.form-group.error input{
+    border: 1px solid red;
+}
+
+.form-group input{
+    width: 240px;
+    margin-top: 20px;
+}
+
+p{
+  font-family: myThirdFont;
+  font-size: 3em;
+}
+
+.center-block{
+  margin-top: 200px;
+}
+
+button
+{
+  color: white;
+  background-color: red;
+  width: 90px;
+  cursor: pointer;
+  cursor: hand;
+  margin-top: 20px;
+}
+button:hover{
+  cursor: hand;
+}
