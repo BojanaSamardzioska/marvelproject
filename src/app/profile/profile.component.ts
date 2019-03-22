@@ -32,7 +32,7 @@ export class ProfileComponent {
     let myDetails =  new Data('John Doe',
                            'username',
                            'johndoe.com', '', 'johndoe@instascape.com', '070555555', this.genders[0]);
-    console.log('My hero is called ' + myDetails.name); // "My hero is called SkyDog"
+    console.log('My hero is called ' + myDetails.name);
     return myDetails;
   }
 
@@ -40,4 +40,9 @@ export class ProfileComponent {
     return form && form.controls['name'] &&
     form.controls['name'].value;
   }
+
+  favHeroes() {
+      this.router.navigate(['fav-heroes']);
+    }
+
 }

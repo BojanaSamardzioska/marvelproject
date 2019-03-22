@@ -1,4 +1,4 @@
-.alphabet {
+/*.alphabet {
     list-style-type: none;
     margin:90px auto 0;
     padding:0;
@@ -11,15 +11,12 @@
     float:left;
     margin:0;
     padding:0;
-    border-right:1px solid darkgrey;
+    border-right:1px solid black;
     font-size: 13px;
-    -moz-box-sizing:border-box;
     color:black;
     display:inline-block;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
     box-sizing:border-box;
-    width:3.84%;
+    width:4%;
 }
 
 .alphabet li:last-child {
@@ -29,4 +26,71 @@
 .alphabet li:hover {
     color:green;
     background-color: none;
+}*/
+
+.bg-marvel
+{
+  background-image: url(./2000px-MarvelLogo2.png);
+  width: 300px;
+  height: 121px;
+  background-repeat: no-repeat;
+  margin-left: 130px;
+}
+
+.nav-marvel{
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+  background-color: black;
+  font-size: 25px;
+  color: black;
+  margin-bottom: 30px;
+  position: absolute;
+  top: 0;
+  margin-left: 0;
+  left: 0;
+}
+
+
+.btn{
+    display: inline;
+    float: right;
+    font-size: 25px;
+    background-color: black;
+    color: red;
+    margin-top: 30px;
+    margin-right: 135px;
+}
+
+.container {
+  Margin-top:30vh;
+  display:flex;
+  justify-content: center;
+}
+
+.hero
+{
+  width: 150px;
+  list-style-type: none;
+}
+
+.hero-list
+{
+  list-style-type: none;
+  margin-top: -140px;
+  justify-content: center;
+}
+
+.form-control{
+  width: 1200px;
+  margin-top: 170px;
+}
+
+.navbar{
+  margin-left: 85px;
+}
+
+.hero-list2, .hero2
+{
+  list-style-type: none;
 }

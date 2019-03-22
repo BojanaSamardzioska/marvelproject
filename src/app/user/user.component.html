@@ -34,8 +34,8 @@
         <tbody>
           <ng-container *ngFor="let hero of heroes | filter : searchFilter | orderBy: key : reverse | elements | paginate : { itemsPerPage: 4, currentPage: p }; let i = index">
               <tr>
-                  <td><img [src]="hero[0].images.thumbnail" align="left"><a routerLink="/details/{{hero[0]?.id}}"><p class = "hero-name">{{hero[0]?.name}}</p></a><br><br> {{hero[0].description}}</td>
-                  <td><img [src]="hero[1].images.thumbnail" align="left"><a routerLink="/details/{{hero[1]?.id}}"><p class = "hero-name">{{hero[1]?.name}}</p></a><br><br> {{hero[1].description}}</td>
+                  <td class="td-first"><img [src]="hero[0].images.thumbnail" align="left"><a routerLink="/details/{{hero[0]?.id}}"><p class = "hero-name">{{hero[0]?.name}}</p></a><br><br> {{hero[0].description}}</td>
+                  <td class="td-second"><img [src]="hero[1].images.thumbnail" align="left"><a routerLink="/details/{{hero[1]?.id}}"><p class = "hero-name">{{hero[1]?.name}}</p></a><br><br> {{hero[1].description}}</td>
               </tr>
           </ng-container>
         </tbody>

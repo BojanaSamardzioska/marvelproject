@@ -13,6 +13,7 @@ import { HeroService }  from '../hero.service';
 export class DetailsComponent implements OnInit {
 
   hero: Hero;
+  heroesArray = JSON.parse(localStorage.getItem('name')) || [];
 
   constructor(
     private route: ActivatedRoute,
@@ -29,4 +30,13 @@ export class DetailsComponent implements OnInit {
     this.heroService.getHero(id)
       .subscribe(hero => this.hero = hero);
   }
+
+  favHeroesLocalStorage()
+  {
+    this.heroesArray.push(this.hero.name);
+    console.log(this.heroesArray);
+    localStorage.setItem('name', JSON.stringify(this.heroesArray));
+  }
+
+
 }

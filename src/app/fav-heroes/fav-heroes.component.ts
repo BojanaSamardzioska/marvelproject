@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { DetailsComponent } from '../details/details.component';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {Router} from "@angular/router";
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { debounceTime, map } from 'rxjs/operators';
+import { Pipe, PipeTransform } from "@angular/core";
+
 
 @Component({
   selector: 'app-fav-heroes',
@@ -9,15 +17,43 @@ import { HeroService } from '../hero.service';
 })
 export class FavHeroesComponent implements OnInit {
 
-  constructor(private heroService: HeroService) { }
+  constructor(private router: Router, private heroService: HeroService, private fb: FormBuilder) { }
 
   heroes : Hero [] = [];
 
+  hero: Hero;
+
+  form: FormGroup;
+
+
   ngOnInit() {
+
+    this.getHeroes();
+
+    this.form = this.fb.group({
+      search2: ['']
+    });
+
+    this.form.get('search2').valueChanges.pipe(debounceTime(5000)).subscribe(value => console.log(value));
 
   }
 
-  allHeroes = [
+  getHeroes(): void {
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
+  }
+
+  onSubmit() {
+    const value = this.form.get('search2').value;
+    console.log(value);
+    this.router.navigate([`/search/${value}`]);
+  }
+
+
+  public allHeroes:Array<any> = JSON.parse(localStorage.getItem('name'));
+
+
+  public allHeroes2:Array<any> = [
  {
    "id": 1009610,
    "aliases": [
@@ -1219,11 +1255,16 @@ export class FavHeroesComponent implements OnInit {
 ];
 
 
-  sorted = this.allHeroes.sort((a, b) => a.name > b.name ? 1 : -1);
+
+  alphabet2 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O",
+        "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+
+  sorted = this.allHeroes.sort((a, b) => a > b ? 1 : -1) || [5];
 
   //for local storage heroes
   groupedLocalStorage = this.sorted.reduce((alphabet, hero) => {
-      const letter = hero.name.charAt(0);
+      const letter = hero.charAt(0);
       alphabet[letter] = alphabet[letter] || [];
       alphabet[letter].push(hero);
       return alphabet;
@@ -1234,14 +1275,12 @@ export class FavHeroesComponent implements OnInit {
 
   grouped = this.sorted.reduce((alphabet, hero) => {
 
-   const alphabet2 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O",
-           "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-   for(let alphaLetter of alphabet2){
+   for(let alphaLetter of this.alphabet2){
 
          alphabet[alphaLetter] = alphabet[alphaLetter] || [];
 
-         if(alphaLetter == hero.name.charAt(0)){
+         if(alphaLetter == hero.charAt(0)){
            alphabet[alphaLetter].push(hero);
          }
    }
@@ -1249,7 +1288,22 @@ export class FavHeroesComponent implements OnInit {
 
   }, {});
 
+  public show:boolean = false;
+  public prev:number = -1;
 
-  result = Object.keys(this.grouped).map(key => ({key, heroes: this.grouped[key]}));
+  public result:Array<any> = Object.keys(this.grouped).map(key => ({key, heroes: this.grouped[key]}));
 
+  clicked2(index) {// only show clicked letter info
+        if(this.result[this.prev] && this.prev != index) {
+          this.result[this.prev].show = false;
+        }
+        this.result[index].show = !this.result[index].show;
+        this.prev = index;
+
+    };
+
+
+    editProfile() {
+        this.router.navigate(['profile']);
+      }
 }

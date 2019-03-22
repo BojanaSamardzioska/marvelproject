@@ -14,5 +14,5 @@
 </tr>
 
 <div class="wrapper">
-  <button (click)="showMore = true" class="button">Load more</button>
+  <button *ngIf="heroes.length > 9" (click)="onClick()" [hidden] = "!IsHidden" class="button">Load more</button>
 </div>

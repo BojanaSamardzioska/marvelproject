@@ -1,23 +1,52 @@
-<div class ="alphabet">
-<ul *ngFor="let group of result">
-  <li>{{group.key}}
-      <ul *ngFor="let hero of group.heroes">
-          <li>{{hero.name}}</li>
+<head>
+  <meta charset="utf-8">
+  <title>Marvel Heroes</title>
+  <base href="/">
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <header class="nav-marvel" style="height: 121px;">
+      <img class = "bg-marvel">
+      <button class="btn" (click)="editProfile()"><i class="icon-user" style="color: white; margin-right: 13px; font-size: 1.4em;"></i>USERNAME</button>
+  </header>
+  <header class="nav-marvel" style="height: 121px;">
+      <img class = "bg-marvel">
+      <button class="btn" (click)="editProfile()"><i class="icon-user" style="color: white; margin-right: 13px; font-size: 1.4em;"></i>USERNAME</button>
+      <button class="btn" (click)="favHeroes()" style="margin-right: 30px;"><i class="icon-star" style="color: white; font-size: 1.4em;"></i></button>
+  </header>
+
+    <nav class="navbar">
+       <form [formGroup]="form" (submit)="onSubmit()">
+        <input class="form-control" type="text" formControlName="search2" name="search" align="center">
+      <!--   <input class="form-control" type="text" name="search" [(ngModel)]="searchFilter"> -->
+       </form>
+    </nav>
+
+<div class ="container" *ngIf="result?.length > 0">
+<ul *ngFor="let group of result; let i = index" (click)="clicked2(i)" class="hero-list">
+  <li class="hero-key">{{group.key}}
+    <div *ngIf="group.show">
+      <br>
+      <br>
+      <ul class="hero" *ngFor="let hero of group.heroes">
+        <li class="hero-name">{{hero}}</li>
+        <br>
+        <br>
       </ul>
+    </div>
   </li>
 </ul>
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<ul *ngFor="let group of result2">
+<div *ngIf="result?.length > 0">
+<ul *ngFor="let group of result2" class="hero-list2">
   <li>{{group.key}}
-      <ul *ngFor="let hero of group.heroes">
-          <li>{{hero.name}}</li>
+      <ul *ngFor="let hero of group.heroes" class="hero2">
+          <li>{{hero}}</li>
       </ul>
   </li>
 </ul>
+</div>

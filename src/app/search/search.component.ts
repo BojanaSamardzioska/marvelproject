@@ -20,6 +20,14 @@ export class SearchComponent implements OnInit {
 
   numCol = 100 / 3;
 
+  IsHidden= true;
+
+  onClick(){
+    this.IsHidden= !this.IsHidden;
+    this.showMore = true;
+  }
+
+
   constructor(private route: ActivatedRoute, private heroService: HeroService) { }
 
   ngOnInit() {

@@ -22,6 +22,7 @@ import { DetailsComponent } from './details/details.component';
 import { SearchComponent } from './search/search.component';
 import { FavHeroesComponent } from './fav-heroes/fav-heroes.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

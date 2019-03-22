@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
+import { LocalStorage } from '@ngx-pwa/local-storage';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,7 +17,9 @@ export class HeroService {
 
   private heroesUrl = 'api/allHeroes';
 
-  constructor(private http: HttpClient) { }
+  hero : Hero;
+
+  constructor(private http: HttpClient, private localStorage : LocalStorage) { }
 
   getHeroes (): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
@@ -32,6 +36,11 @@ export class HeroService {
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
   }
+
+  saveHero(name: string){
+    this.localStorage.setItem('name', name).subscribe(() => {});
+  }
+
 
   /**
    * Handle Http operation that failed.
